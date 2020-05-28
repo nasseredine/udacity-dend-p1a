@@ -17,11 +17,12 @@ songplay_table_create = ("""
 CREATE TYPE membership_level AS ENUM ('free', 'paid');
 
 CREATE TABLE IF NOT EXISTS songplays (
-    songplay_id int PRIMARY KEY,
+    songplay_id serial PRIMARY KEY,
     start_time timestamp NOT NULL,
+    user_id int NOT NULL,
     level membership_level NOT NULL,
-    song_id char(18) NOT NULL,
-    artist_id char(18) NOT NULL,
+    song_id char(18),
+    artist_id char(18),
     session_id int NOT NULL,
     location varchar NOT NULL,
     user_agent varchar NOT NULL
@@ -75,6 +76,8 @@ CREATE TABLE IF NOT EXISTS time (
 # INSERT RECORDS
 
 songplay_table_insert = ("""
+INSERT INTO songplays (start_time, user_id, level, song_id, artist_id, session_id, location, user_agent)
+VALUES (%s, %s, %s, %s, %s, %s, %s, %s);
 """)
 
 user_table_insert = ("""
@@ -101,6 +104,10 @@ VALUES (%s, %s, %s, %s, %s, %s, %s);
 # FIND SONGS
 
 song_select = ("""
+SELECT song_id, artist_id
+FROM songs
+JOIN artists USING (artist_id)
+WHERE title = %s AND name = %s AND duration = %s;
 """)
 
 # QUERY LISTS

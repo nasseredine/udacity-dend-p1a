@@ -20,8 +20,8 @@ CREATE TABLE IF NOT EXISTS songplays (
     songplay_id int PRIMARY KEY,
     start_time timestamp NOT NULL,
     level membership_level NOT NULL,
-    song_id varchar NOT NULL,
-    artist_id varchar NOT NULL,
+    song_id char(18) NOT NULL,
+    artist_id char(18) NOT NULL,
     session_id int NOT NULL,
     location varchar NOT NULL,
     user_agent varchar NOT NULL
@@ -44,7 +44,7 @@ song_table_create = ("""
 CREATE TABLE IF NOT EXISTS songs (
     song_id char(18) PRIMARY KEY,
     title varchar NOT NULL,
-    artist_id char(8) NOT NULL,
+    artist_id char(18) NOT NULL,
     year int,
     duration numeric(8,5)
 );

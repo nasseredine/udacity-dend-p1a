@@ -1,5 +1,6 @@
 import os
 import glob
+import math
 import psycopg2
 import pandas as pd
 from sql_queries import *
@@ -11,10 +12,18 @@ def process_song_file(cur, filepath):
 
     # insert song record
     song_data = df[['song_id', 'title', 'artist_id', 'year', 'duration']].values[0].tolist()
+    year = song_data[3]
+    song_data[3] = None if not year else year # replace year with None if 0
     cur.execute(song_table_insert, song_data)
     
     # insert artist record
     artist_data = df[['artist_id', 'artist_name', 'artist_location', 'artist_latitude', 'artist_longitude']].values[0].tolist()
+    location = artist_data[2]
+    latitude = artist_data[3]
+    longitude = artist_data[4]
+    artist_data[2] = None if not location else location # replace location with None if ''
+    artist_data[3] = None if math.isnan(latitude) else latitude # replace latitude with None if nan
+    artist_data[4] = None if math.isnan(longitude) else longitude # replace longitude with None if nan
     cur.execute(artist_table_insert, artist_data)
 
 

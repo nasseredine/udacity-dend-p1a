@@ -58,7 +58,7 @@ Examples of business questions and their corresponding queries that answer them 
 
 
 
-**Note**: the `songs` table reference the `artists` table using `artist_id` as a foreign key. This is called an _outrigger dimensions_ and is considered a data-warehouse anti-pattern. However, this was part of the project requirements to design the schema this way. A better practice would be to relate those two dimensions using a fact table.
+**Note**: the `songs` table reference the `artists` table using `artist_id` as a foreign key. This is called an _outrigger dimensions_ and is considered a data-warehouse anti-pattern. However, this was part of the project specifications to design the schema this way. A better practice would be to relate those two dimensions using a fact table.
 
 ## ETL pipeline
 

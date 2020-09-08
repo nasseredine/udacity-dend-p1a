@@ -142,13 +142,13 @@ python3 etl.py
 
 ## Running the tests
 
-To check that the database was properly created you can run the cells in the `test.ipynb`. This Python Notebook connects to the local `sparkify` database using the `student ` use. It then displays the first 5 rows for each table.
+To check that the database was properly created you can run the cells in the `test.ipynb`. This Python Notebook connects to the local `sparkify` database using the `student` user. It then displays the first 5 rows for each table.
 
 
 
 ## Example queries
 
-An [`example_queries.ipynb`](example_queries.ipynb) Python Notebook provides example queries with the expected output results.
+An [`example_queries.ipynb`](./example_queries.ipynb) Python Notebook provides example queries with the expected output results.
 
 
 
@@ -156,7 +156,7 @@ An [`example_queries.ipynb`](example_queries.ipynb) Python Notebook provides exa
 
 **DISCLAIMER:** This project is part of the Data Engineering Nanodegree Program from Udacity. You must abide by [Udacity's Honor of Code](https://udacity.zendesk.com/hc/en-us/articles/210667103-What-is-the-Udacity-Honor-Code-), and in particular, you must submit your own work or attribute my code if you want to use part of my solution.
 
-The project is released under the MIT License. See the [LICENSE.md](https://github.com/nasseredine/udacity-dend-p1/blob/master/LICENSE.md) file for details.
+The project is released under the MIT License. See the [LICENSE.md](./LICENSE.md) file for details.
 
 Copyright (c) 2020 Nasseredine Bajwa.
 
